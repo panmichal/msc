@@ -1,0 +1,4 @@
+1. Convert to text (katalog)
+2. Filter - katalogi
+3. Tokenize - 'filtered' dla filtrowanych
+4. Compare freq
