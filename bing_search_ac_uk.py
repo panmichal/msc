@@ -18,8 +18,6 @@ def main():
 	used_phrases = used_phrases_file.readlines();
 	not_used_phrases = (set(phrases) - set(used_phrases))
 	
-	conn = psycopg2.connect("dbname=polish_english user=postgres")
-	cur = conn.cursor()
 	i = 0
 	j = 0
 	for phrase in not_used_phrases:
@@ -29,7 +27,11 @@ def main():
 		skip = 0	
 		while (skip < 1000)	:
 			print 'SKIP:' + str(skip)
-			results = requests.get('https://api.datamarket.azure.com/Data.ashx/Bing/Search/v1/Web?Query=%27' + phrase +'%20filetype%3apdf%20site%3aac.uk%27&$top=50&$skip=' + str(skip) + '&$format=json', auth=('Nr11EnLILZ3as4h88CL4NhxYRiSmlsrnJFMH6KqBpbg=', 'Nr11EnLILZ3as4h88CL4NhxYRiSmlsrnJFMH6KqBpbg=')).json
+			try:
+				results = requests.get('https://api.datamarket.azure.com/Data.ashx/Bing/Search/v1/Web?Query=%27' + phrase +'%20filetype%3apdf%20site%3aac.uk%27&$top=50&$skip=' + str(skip) + '&$format=json', auth=('Nr11EnLILZ3as4h88CL4NhxYRiSmlsrnJFMH6KqBpbg=', 'Nr11EnLILZ3as4h88CL4NhxYRiSmlsrnJFMH6KqBpbg=')).json
+			except:
+				print "error occurred while querying Bing"
+				continue
 			for result in results['d']['results']:
 				url = result['Url']
 				i += 1
@@ -58,8 +60,11 @@ def main():
 					filename = url.split('/')[-2]	
 				
 				if (len(filename) > 128):
-					filename = filename[:128]	
-				output = open('downloaded/ac_uk/phrase_' + phrase.strip() + '/' + filename,'w')
+					filename = filename[:128]
+				output_path = 'downloaded/ac_uk/phrase_' + phrase.strip() + '/' + filename;
+				if os.path.exists(output_path):
+					continue		
+				output = open(output_path,'w')
 				try:
 					output.write(response.read())
 				except httplib.IncompleteRead:
@@ -67,11 +72,7 @@ def main():
 				except socket.timeout:
 					print "timeout"
 					continue	
-				output.close()
-				cur.execute("INSERT INTO document (link, path) VALUES (%s, %s)", (url, filename))
-				if (i == 10):
-					conn.commit()
-					i = 0;
+				output.close();
 				if (j == 100):
 					#time.sleep(20)
 					j = 0	

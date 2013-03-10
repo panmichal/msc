@@ -10,7 +10,8 @@ FILTERED_INDEX = "filtered_texts.txt"
 def write_csv(freq, output):
 	writer = csv.writer(open(output, "w"))
 	for bigram in freq:
-		writer.writerow([bigram[0], bigram[1][0], bigram[1][1]])
+		if bigram[1][0] > 10 and bigram[1][1] > 10:
+			writer.writerow([bigram[0], bigram[1][0], bigram[1][1]])
 		
 def make_bigrams_from_file(relative_path, freq_dict):
 	try:
@@ -25,7 +26,7 @@ def make_bigrams_from_file(relative_path, freq_dict):
 			continue	
 		tokens += nltk.WordPunctTokenizer().tokenize(line)
 	bigrams = nltk.bigrams(tokens)
-	print "[bigrams %s] %s" % (len(bigrams), relative_path)
+	#print "[bigrams %s] %s" % (len(bigrams), relative_path)
 	for bigram in bigrams:
 		bigram = bigram[0].strip() + ' ' + bigram[1].strip()
 		if len(bigram) < 7:

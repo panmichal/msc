@@ -2,3 +2,4 @@
 2. Filter - katalogi
 3. Tokenize - 'filtered' dla filtrowanych
 4. Compare freq
+5. Filter dict - dictionary_file input_file

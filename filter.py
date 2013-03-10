@@ -25,7 +25,7 @@ for root, dirs, files in os.walk(sys.argv[1]):
 	for f in files:
 		relative_path = root + "/" + f
 		if relative_path in already_filtered:
-			print "[SKIPPING] %s" % (relative_path)
+			#print "[SKIPPING] %s" % (relative_path)
 			continue
 		counter += 1
 		txt = open(relative_path)
