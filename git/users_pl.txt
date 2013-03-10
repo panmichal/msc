@@ -1,0 +1,16 @@
+sharnik,wojtek@7tonlnu.pl,987
+netguru,netguru@netguru.pl,1146
+tomaszskutnik,Tomasz.Skutnik@e-point.pl,1848
+gnosek,root(@)localdomain.pl,3634
+jarzebski,korneliusz@jarzebski.pl,3647
+filiptepper,filip@tepper.pl,3822
+madmax,grzegorz.derebecki@fdb.pl,4486
+rkj,rkj@go2.pl,4562
+xmxwx,michal.wrobel@flytronic.pl,5033
+deno,deno@deno.pl,5279
+maurycy,maurycy@g.pl,5383
+robzon,robert.nasiadek@elpassion.pl,6156
+aleksandersumowski,sumek@o2.pl,6926
+dione,Dominik.Jarmulowicz@iem.pw.edu.pl,7990
+wbzyl,matwb@univ.gda.pl,8049
+marcek,marcek@greatplan.pl,8478
