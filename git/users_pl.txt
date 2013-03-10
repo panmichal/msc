@@ -14,3 +14,11 @@ aleksandersumowski,sumek@o2.pl,6926
 dione,Dominik.Jarmulowicz@iem.pw.edu.pl,7990
 wbzyl,matwb@univ.gda.pl,8049
 marcek,marcek@greatplan.pl,8478
+pch,piotr@chmolowski.pl,9818
+slain,krzysztof@aenima.pl,10495
+morgoth,wojtek@urizen.pl,10766
+netresolve,andrzej@netresolve.pl,11215
+lukaszklis,lukasz@klis.pl,11782
+swistaczek,ernest@bzdury.pl,13238
+gislan,gislan@utumno.pl,13880
+czak,lukasz@czak.pl,14021

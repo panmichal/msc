@@ -25,7 +25,7 @@ pl_writer = csv.writer(pl_file)
 uk_file = open('users_uk.txt', 'a')
 uk_writer = csv.writer(uk_file)
 uk_users = []
-last_user = 0
+last_user = 14021
 while (True):
 	print "LAST USER: " + str(last_user)
 	users = Github.get_users(last_user)
